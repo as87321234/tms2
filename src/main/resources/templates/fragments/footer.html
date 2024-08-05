@@ -1,0 +1,11 @@
+<div th:fragment="footer">
+    <div class="container footer navbar-dark bg-dark fixed-bottom">
+        <div class="row">
+            <div class="col-md-4" ></div>
+            <p class="text-center" style="color:white" >&copy;
+                <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span>
+                <a href="https://ca.mgisinc.identitytms"  style="color:white; text-decoration: none; " >MGIS INC - Identity Transaction Management Services</a>
+            </p>
+        </div>
+    </div>
+</div>

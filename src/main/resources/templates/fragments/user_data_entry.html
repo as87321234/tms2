@@ -1,0 +1,36 @@
+<div th:fragment="user_data_entry">
+    <div>
+        <div class="row">
+            <div class="form-group col-6 mb-3">
+                <label>Name</label>
+                <!--suppress HtmlFormInputWithoutLabel -->
+                <input class="form-control" name="name" th:value="${userInstance?.name}"/>
+            </div>
+            <div class="form-group col-6 mb-3">
+                <label>Username</label>
+                <!--suppress HtmlFormInputWithoutLabel -->
+                <input class="form-control" name="username" th:value="${userInstance?.username}"/>
+                <label>Password</label>
+                <!--suppress HtmlFormInputWithoutLabel -->
+                <input class="form-control" name="password" th:value="${userInstance?.password}"/>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="form-group col-6 mb-3">
+            <label>Enable</label>
+            <!--suppress HtmlFormInputWithoutLabel -->
+            <input class="form-control, checkbox" name="enable" type="checkbox" th:checked="${userInstance?.enable}  "/>
+        </div>
+        <div class="form-group col-6 mb-3">
+            <label>Token Expired</label>
+            <!--suppress HtmlFormInputWithoutLabel -->
+            <input class="form-control, checkbox" name="tokenExpired" type="checkbox"
+                   th:checked="${userInstance?.tokenExpired} ? 'checked' "/>
+        </div>
+    </div>
+</div>

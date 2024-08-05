@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head title="" th:replace="~{fragments/head :: head}">
+    <title></title>=
+</head>
+
+<body>
+
+<header th:replace="~{fragments/header :: header}"></header>
+
+<div class="container" style="margin-top:80px">
+
+    <div class="identity-text-center">
+        <h1>Welcome to MGIS Inc.</h1>
+    </div>
+
+    <table id="table-index-page" class="tg">
+        <thead></thead>
+
+        <colgroup>
+            <col style="width:40%">
+            <col style="width:40%">
+        </colgroup>
+
+        <tbody>
+        <tr>
+            <td><a href="/private/monitoring/index" class="btn btn-primary w-100">Monitoring</a></td>
+            <td><a href="/private/user/index" class="btn btn-primary w-100">Managed Users</a></td>
+        </tr>
+        <tr>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+
+</body>
+
+</html>
