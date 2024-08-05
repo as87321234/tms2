@@ -1,6 +1,5 @@
 package ca.mgisinc.tms2.model;
 
-import ca.mgisinc.tms2.model.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
