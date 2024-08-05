@@ -55,8 +55,6 @@ public class ApiController {
                 }
             }
 
-
-
             userTableView.setRoles(roles);
             userTableView.setPrivileges(privileges);
 

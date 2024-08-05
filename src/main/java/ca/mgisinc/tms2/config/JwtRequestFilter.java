@@ -40,8 +40,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
 
-
-        Logger log = LoggerFactory.getLogger(JwtRequestFilter.class);
+        final Logger log = LoggerFactory.getLogger(JwtRequestFilter.class);
 
         final String authorizationHeader = request.getHeader("Authorization");
         final String jSessionId = request.getSession().getId();
