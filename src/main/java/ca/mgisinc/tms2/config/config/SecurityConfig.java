@@ -31,6 +31,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import java.util.*;
 
+@SuppressWarnings("Convert2Diamond")
 @Configuration
 @ComponentScan
 
@@ -83,6 +84,7 @@ public class SecurityConfig {
         roleRepository.save(r);
 
         r = new Role("USER");
+        //noinspection ArraysAsListWithZeroOrOneArgument
         r.setPrivileges(new ArrayList<>(Arrays.<Privilege>asList(privilegeRepository.findByName("READ"))));
         roleRepository.save(r);
 
@@ -94,6 +96,7 @@ public class SecurityConfig {
         u.setFirstName("admin");
         u.setLastName("admin");
         u.setEnabled(true);
+        //noinspection ArraysAsListWithZeroOrOneArgument
         u.setRoles(new ArrayList<Role>(Arrays.asList(roleRepository.findByName("ADMIN"))));
         userRepository.save(u);
 
@@ -104,6 +107,7 @@ public class SecurityConfig {
         u.setFirstName("André");
         u.setLastName("St-Louis");
         u.setEnabled(true);
+        //noinspection ArraysAsListWithZeroOrOneArgument
         u.setRoles(new ArrayList<Role>(Arrays.asList(roleRepository.findByName("OPERATOR"))));
         userRepository.save(u);
 
@@ -114,6 +118,7 @@ public class SecurityConfig {
         u.setFirstName("Sonia");
         u.setLastName("Bégin");
         u.setEnabled(true);
+        //noinspection ArraysAsListWithZeroOrOneArgument
         u.setRoles(new ArrayList<Role>(Arrays.asList(roleRepository.findByName("USER"))));
         userRepository.save(u);
 

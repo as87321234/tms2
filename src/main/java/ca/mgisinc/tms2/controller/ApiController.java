@@ -33,7 +33,7 @@ public class ApiController {
     final Logger log = LoggerFactory.getLogger(ApiController.class);
 
     @PostMapping(value = "get_users", produces = MediaType.APPLICATION_JSON_VALUE)
-    public DataView getUser(HttpServletRequest request, HttpServletResponse response, Model model)  {
+    public DataView getUser(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel)  {
 
         log.info("ApplicationController root");
 
@@ -44,8 +44,8 @@ public class ApiController {
             UserTableView userTableView = new UserTableView();
             BeanUtils.copyProperties(u, userTableView);
 
-            Set<String> roles = new HashSet<String>();
-            Set<String> privileges = new HashSet<String>();
+            Set<String> roles = new HashSet<>();
+            Set<String> privileges = new HashSet<>();
 
             for (Role r : u.getRoles() ){
                 roles.add(r.getName());
