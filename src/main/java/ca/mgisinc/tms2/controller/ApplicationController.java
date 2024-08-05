@@ -27,7 +27,7 @@ public class ApplicationController {
     }
 
     @GetMapping("/index")
-    public String index(HttpServletRequest request, HttpServletResponse response, Model model)  {
+    public String index(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel)  {
 
         log.info("ApplicationController index");
         return "/public/index";
@@ -35,7 +35,7 @@ public class ApplicationController {
 
     @GetMapping("/private/index")
     @PreAuthorize("hasAnyAuthority('ADMIN')")
-    public String privateIndex(HttpServletRequest request, HttpServletResponse response, Model model)  {
+    public String privateIndex(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel)  {
 
         log.info("ApplicationController privateIndex");
 
@@ -44,7 +44,7 @@ public class ApplicationController {
     }
 
     @GetMapping("/private/user/index")
-    public String privateUserIndex(HttpServletRequest request, HttpServletResponse response, Model model)  {
+    public String privateUserIndex(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel)  {
 
         log.info("ApplicationController privateUser");
         return "/private/user/index";

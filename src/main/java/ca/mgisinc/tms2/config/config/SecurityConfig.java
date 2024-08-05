@@ -73,18 +73,17 @@ public class SecurityConfig {
         privilegeRepository.save(p);
         privilegeRepository.flush();
 
-
         // Load Roles
         Role r = new Role("ADMIN");
         r.setPrivileges(new ArrayList<Privilege>(Arrays.asList(privilegeRepository.findByName("CREATE"), privilegeRepository.findByName("READ"), privilegeRepository.findByName("UPDATE"), privilegeRepository.findByName("DELETE"))));
         roleRepository.saveAndFlush(r);
 
         r = new Role("OPERATOR");
-        r.setPrivileges(new ArrayList<Privilege>(Arrays.asList(privilegeRepository.findByName("CREATE"), privilegeRepository.findByName("READ"), privilegeRepository.findByName("UPDATE"))));
+        r.setPrivileges(new ArrayList<>(Arrays.<Privilege>asList(privilegeRepository.findByName("CREATE"), privilegeRepository.findByName("READ"), privilegeRepository.findByName("UPDATE"))));
         roleRepository.save(r);
 
         r = new Role("USER");
-        r.setPrivileges(new ArrayList<Privilege>(Arrays.asList(privilegeRepository.findByName("READ"))));
+        r.setPrivileges(new ArrayList<>(Arrays.<Privilege>asList(privilegeRepository.findByName("READ"))));
         roleRepository.save(r);
 
         // Load Users
@@ -96,8 +95,7 @@ public class SecurityConfig {
         u.setLastName("admin");
         u.setEnabled(true);
         u.setRoles(new ArrayList<Role>(Arrays.asList(roleRepository.findByName("ADMIN"))));
-
-        u = userRepository.saveAndFlush(u);
+        userRepository.save(u);
 
         u = new User();
         u.setUsername("stlouisa");
@@ -107,7 +105,7 @@ public class SecurityConfig {
         u.setLastName("St-Louis");
         u.setEnabled(true);
         u.setRoles(new ArrayList<Role>(Arrays.asList(roleRepository.findByName("OPERATOR"))));
-        u = userRepository.save(u);
+        userRepository.save(u);
 
         u = new User();
         u.setUsername("begins");
@@ -117,7 +115,7 @@ public class SecurityConfig {
         u.setLastName("Bégin");
         u.setEnabled(true);
         u.setRoles(new ArrayList<Role>(Arrays.asList(roleRepository.findByName("USER"))));
-        u = userRepository.save(u);
+        userRepository.save(u);
 
         return null;
 

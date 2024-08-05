@@ -29,7 +29,6 @@ import java.util.List;
 
 @Component
 @AllArgsConstructor
-@RequiredArgsConstructor
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     @Autowired
