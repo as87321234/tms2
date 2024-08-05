@@ -8,8 +8,7 @@ import java.util.Set;
 @Getter
 @Setter
 
-public class UserTableView
-{
+public class UserTableView {
     private Long id;
     private String username;
     private String firstName;

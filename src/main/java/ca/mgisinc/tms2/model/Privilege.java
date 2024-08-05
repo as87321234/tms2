@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.util.Collection;
 
 @Entity
-@Table(name="privilege")
+@Table(name = "privilege")
 @Getter
 @Setter
 @NoArgsConstructor

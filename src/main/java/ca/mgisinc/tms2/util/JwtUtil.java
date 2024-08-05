@@ -23,7 +23,7 @@ public class JwtUtil {
     }
 
     public String extractUsername(String token, String jSessionId) {
-        return extractClaim(token, Claims::getSubject, jSessionId) ;
+        return extractClaim(token, Claims::getSubject, jSessionId);
     }
 
     public Date extractExpiration(String token) {

@@ -33,7 +33,7 @@ public class ApiController {
     final Logger log = LoggerFactory.getLogger(ApiController.class);
 
     @PostMapping(value = "get_users", produces = MediaType.APPLICATION_JSON_VALUE)
-    public DataView getUser(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel)  {
+    public DataView getUser(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
 
         log.info("ApplicationController root");
 
@@ -47,10 +47,10 @@ public class ApiController {
             Set<String> roles = new HashSet<>();
             Set<String> privileges = new HashSet<>();
 
-            for (Role r : u.getRoles() ){
+            for (Role r : u.getRoles()) {
                 roles.add(r.getName());
 
-                for (Privilege p : r.getPrivileges()){
+                for (Privilege p : r.getPrivileges()) {
                     privileges.add(p.getName());
                 }
             }

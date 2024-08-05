@@ -21,13 +21,13 @@ public class ApplicationController {
     JwtUtil jwtUti;
 
     @GetMapping("/")
-    public String root(HttpServletRequest request, HttpServletResponse response, Model model)  {
+    public String root(HttpServletRequest request, HttpServletResponse response, Model model) {
         log.info("ApplicationController root");
         return index(request, response, model);
     }
 
     @GetMapping("/index")
-    public String index(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel)  {
+    public String index(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
 
         log.info("ApplicationController index");
         return "/public/index";
@@ -35,7 +35,7 @@ public class ApplicationController {
 
     @GetMapping("/private/index")
     @PreAuthorize("hasAnyAuthority('ADMIN')")
-    public String privateIndex(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel)  {
+    public String privateIndex(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
 
         log.info("ApplicationController privateIndex");
 
@@ -44,7 +44,7 @@ public class ApplicationController {
     }
 
     @GetMapping("/private/user/index")
-    public String privateUserIndex(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel)  {
+    public String privateUserIndex(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
 
         log.info("ApplicationController privateUser");
         return "/private/user/index";

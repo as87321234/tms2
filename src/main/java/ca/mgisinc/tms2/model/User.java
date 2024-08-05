@@ -6,12 +6,12 @@ import lombok.*;
 import java.util.Collection;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
 
-public class User extends BaseEntity   {
+public class User extends BaseEntity {
 
     private String username;
     private String firstName;
@@ -21,7 +21,7 @@ public class User extends BaseEntity   {
     private boolean enabled;
     private boolean tokenExpired;
 
-    public User(String username, String firstName, String lastName, String email,  String password, Boolean enabled, Boolean tokenExpired)  {
+    public User(String username, String firstName, String lastName, String email, String password, Boolean enabled, Boolean tokenExpired) {
 
         this.username = username;
         this.firstName = firstName;
@@ -33,7 +33,7 @@ public class User extends BaseEntity   {
 
     }
 
-    @ManyToMany (cascade = CascadeType.MERGE)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(
