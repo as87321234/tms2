@@ -1,6 +1,5 @@
 package ca.mgisinc.tms2.config;
 
-
 import ca.mgisinc.tms2.service.CustomUserDetailsService;
 import ca.mgisinc.tms2.util.JwtUtil;
 import jakarta.servlet.FilterChain;

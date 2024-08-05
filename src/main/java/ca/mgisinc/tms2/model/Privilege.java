@@ -23,4 +23,5 @@ public class Privilege extends BaseEntity {
 
     @ManyToMany(mappedBy = "privileges")
     private Collection<Role> roles;
+
 }

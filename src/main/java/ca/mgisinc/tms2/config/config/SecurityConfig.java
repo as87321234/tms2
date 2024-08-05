@@ -1,6 +1,5 @@
 package ca.mgisinc.tms2.config.config;
 
-
 import ca.mgisinc.tms2.config.JwtRequestFilter;
 import ca.mgisinc.tms2.model.Privilege;
 import ca.mgisinc.tms2.model.Role;
