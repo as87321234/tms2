@@ -71,4 +71,23 @@ public class ApplicationController {
         return "/private/management/properties";
     }
 
+    @GetMapping("/private/processflow/index")
+    public String getProcessFlowIndex(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
+
+        log.info("ApplicationController /private/processflow/index");
+
+        return "/private/processflow/index";
+    }
+
+
+    @GetMapping("/private/repository/deployment")
+    public String getRepositoryDeployment(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
+
+        log.info("ApplicationController /private/repository/deployment");
+
+        return "/private/repository/deployment";
+    }
+
+
+
 }
