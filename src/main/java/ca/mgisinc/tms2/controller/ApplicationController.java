@@ -50,25 +50,25 @@ public class ApplicationController {
         return "/private/user/index";
     }
 
-    @GetMapping("/private/flowablecfg/index")
+    @GetMapping("/private/management/index")
     public String flowableConfig(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
 
         log.info("ApplicationController flowableConfig");
-        return "/private/flowablecfg/index";
+        return "/private/management/index";
     }
 
-    @GetMapping("/private/flowablecfg/engine-info")
+    @GetMapping("/private/management/engine")
     public String getEngineInfo(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
 
-        log.info("ApplicationController engine-info");
-        return "/private/flowablecfg/engine-info";
+        log.info("ApplicationController engine");
+        return "/private/management/engine";
     }
 
-    @GetMapping("/private/flowablecfg/engine-properties")
+    @GetMapping("/private/management/properties")
     public String getEngineProperties(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
 
-        log.info("ApplicationController engine-properties");
-        return "/private/flowablecfg/engine-properties";
+        log.info("ApplicationController properties");
+        return "/private/management/properties";
     }
 
 }

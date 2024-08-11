@@ -35,10 +35,10 @@ public class FlowableProxyController {
     @Autowired
     JwtUtil jwtUti;
 
-    @GetMapping(value = "/get-engine-info", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getEngineInfo(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
+    @GetMapping(value = "/management/engine", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getManagementEngine(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
 
-        log.info("FlowableProxyController: get-engine-info");
+        log.info("FlowableProxyController: /management/engine");
         String protocol = "http";
         HttpMethod method = HttpMethod.GET;
         String userinfo = null;
@@ -57,10 +57,10 @@ public class FlowableProxyController {
         return resp.getBody();
     }
 
-    @GetMapping(value = "/get-engine-properties", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getEngineProperties(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
+    @GetMapping(value = "/management/properties", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getManagementProperties(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
 
-        log.info("FlowableProxyController: get-engine-properties");
+        log.info("FlowableProxyController: /management/engine/properties");
         String protocol = "http";
         HttpMethod method = HttpMethod.GET;
         String userinfo = null;
