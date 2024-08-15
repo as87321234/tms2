@@ -83,7 +83,29 @@ public class FlowableProxyController {
     @GetMapping(value = "/repository/deployments", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getRepositoryDeployments(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
 
-        log.info("FlowableProxyController: /repository/deployment");
+        log.info("FlowableProxyController: /repository/deployments");
+        String protocol = "http";
+        HttpMethod method = HttpMethod.GET;
+        String userinfo = null;
+        String fragment = null;
+        String body = null;
+        int port = 9090;
+        String host = "localhost";
+        String url = "/process-api/repository/deployments";
+
+        URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
+
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> resp =
+                restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
+
+        return resp.getBody();
+    }
+
+    @GetMapping(value = "/repository/definitions", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getRepositoryDepfinitions(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
+
+        log.info("FlowableProxyController: /repository/definitions");
         String protocol = "http";
         HttpMethod method = HttpMethod.GET;
         String userinfo = null;

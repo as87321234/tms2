@@ -88,6 +88,28 @@ public class ApplicationController {
         return "/private/repository/deployment";
     }
 
+    @GetMapping("/private/repository/process-definitions")
+    public String getRepositoryProcessDefinitions(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
 
+        log.info("ApplicationController /private/repository/process-definitions");
+
+        return "/private/repository/process-definitions";
+    }
+
+    @GetMapping("/private/runtime/process-instances")
+    public String getRuntimeProcessInstance(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
+
+        log.info("ApplicationController /private/runtime/process-instances");
+
+        return "/private/runtime/process-instances";
+    }
+
+    @GetMapping("/private/runtime/executions")
+    public String getRuntimeExecution(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
+
+        log.info("ApplicationController /private/runtime/executions");
+
+        return "/private/runtime/executions";
+    } 
 
 }
