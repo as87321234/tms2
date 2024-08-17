@@ -27,6 +27,8 @@ public class FlowableApiControllerConfig {
     String DEPLOYMENT = "/deployments";
     String DEFINITION = "/definitions";
     String PROCESS_DEFINITION = "/process-definitions";
+    String IMAGE = "/image";
+
 
     // Runtime
     String RUNTIME = "/runtime";

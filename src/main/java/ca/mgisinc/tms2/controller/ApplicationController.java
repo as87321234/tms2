@@ -110,6 +110,6 @@ public class ApplicationController {
         log.info("ApplicationController /private/runtime/executions");
 
         return "/private/runtime/executions";
-    } 
+    }
 
 }
