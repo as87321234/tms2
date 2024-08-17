@@ -9,6 +9,11 @@
     border-collapse: collapse;
 }
 
+.ui-dialog {
+
+    width: 900px!important;
+}
+
 .identity-text-center {
 
     text-align:center;
