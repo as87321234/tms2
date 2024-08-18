@@ -29,6 +29,8 @@ import java.util.List;
 @AllArgsConstructor
 public class JwtRequestFilter extends OncePerRequestFilter {
 
+    private final Logger log = LoggerFactory.getLogger(JwtRequestFilter.class);
+
     @Autowired
     private JwtUtil jwtUtil;
 
@@ -39,7 +41,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
 
-        final Logger log = LoggerFactory.getLogger(JwtRequestFilter.class);
 
         final String authorizationHeader = request.getHeader("Authorization");
         final String jSessionId = request.getSession().getId();

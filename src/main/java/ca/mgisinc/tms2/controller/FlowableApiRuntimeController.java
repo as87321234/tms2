@@ -24,7 +24,7 @@ import java.util.Arrays;
 
 public class FlowableApiRuntimeController {
 
-    Logger log = LoggerFactory.getLogger(FlowableApiRuntimeController.class);
+    private final Logger log = LoggerFactory.getLogger(FlowableApiRuntimeController.class);
 
     @Autowired
     FlowableApiControllerConfig conf;

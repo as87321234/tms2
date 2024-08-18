@@ -25,7 +25,7 @@ import java.net.URISyntaxException;
 
 public class FlowableApiRepositoryController {
 
-    Logger log = LoggerFactory.getLogger(FlowableApiRepositoryController.class);
+    private final Logger log = LoggerFactory.getLogger(FlowableApiRepositoryController.class);
 
     @Autowired
     FlowableApiControllerConfig conf;

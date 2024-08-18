@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ApplicationController {
 
-    final Logger log = LoggerFactory.getLogger(ApplicationController.class);
+    private final Logger log = LoggerFactory.getLogger(ApplicationController.class);
 
     @Autowired
     JwtUtil jwtUti;

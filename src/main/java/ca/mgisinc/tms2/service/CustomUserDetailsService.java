@@ -16,7 +16,7 @@ import java.util.ArrayList;
 @EnableJpaRepositories
 public class CustomUserDetailsService implements UserDetailsService {
 
-    final Logger log = LoggerFactory.getLogger(CustomUserDetailsService.class);
+    private final Logger log = LoggerFactory.getLogger(CustomUserDetailsService.class);
 
     @Autowired
     private UserRepository userRepository;

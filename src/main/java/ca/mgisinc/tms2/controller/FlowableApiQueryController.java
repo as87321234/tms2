@@ -24,7 +24,7 @@ import java.util.Arrays;
 
 public class FlowableApiQueryController {
 
-    Logger log = LoggerFactory.getLogger(FlowableApiQueryController.class);
+    private final Logger log = LoggerFactory.getLogger(FlowableApiQueryController.class);
 
     @Autowired
     FlowableApiControllerConfig conf;

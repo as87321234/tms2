@@ -36,7 +36,7 @@ import java.util.*;
 
 public class SecurityConfig {
 
-    final Logger log = LoggerFactory.getLogger(SecurityConfig.class);
+    private final Logger log = LoggerFactory.getLogger(SecurityConfig.class);
 
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
