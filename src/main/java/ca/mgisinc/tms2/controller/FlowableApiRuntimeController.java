@@ -38,7 +38,7 @@ public class FlowableApiRuntimeController {
         int port = conf.port;
 
         HttpMethod method = HttpMethod.GET;
-        String url = conf.RUNTIME_EXECUTIONS;
+        String url = FlowableApiControllerConfig.RUNTIME_EXECUTIONS;
         String body = null;
 
         log.info("FlowableApiRuntimeController: " + url);

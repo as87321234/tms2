@@ -39,7 +39,7 @@ public class FlowableApiQueryController {
         int port = conf.port;
 
         HttpMethod method = HttpMethod.POST;
-        String url = conf.QUERY_PROCESS_INSTANCE;
+        String url = FlowableApiControllerConfig.QUERY_PROCESS_INSTANCE;
         String body = null;
 
         log.info("FlowableApiQueryController: " + url);

@@ -41,7 +41,7 @@ public class FlowableApiRepositoryController {
         int port = conf.port;
 
         HttpMethod method = HttpMethod.GET;
-        String url = conf.REPOSITORY_DEPLOYMENTS;
+        String url = FlowableApiControllerConfig.REPOSITORY_DEPLOYMENTS;
         String body = null;
 
         log.info("FlowableApiRepositoryController: " + url);
@@ -64,7 +64,7 @@ public class FlowableApiRepositoryController {
         int port = conf.port;
 
         HttpMethod method = HttpMethod.GET;
-        String url = conf.REPOSITORY_PROCESS_DEFINITIONS;
+        String url = FlowableApiControllerConfig.REPOSITORY_PROCESS_DEFINITIONS;
         String body = null;
 
         log.info("FlowableApiRepositoryController: " + url);
@@ -89,7 +89,7 @@ public class FlowableApiRepositoryController {
         int port = conf.port;
 
         HttpMethod method = HttpMethod.DELETE;
-        String url = conf.REPOSITORY_DEPLOYMENTS + "/" + id;
+        String url = FlowableApiControllerConfig.REPOSITORY_DEPLOYMENTS + "/" + id;
         String body = null;
 
         log.info("FlowableProxyController: " + url);
@@ -115,7 +115,7 @@ public class FlowableApiRepositoryController {
         int port = conf.port;
 
         HttpMethod method = HttpMethod.GET;
-        String url = conf.REPOSITORY_PROCESS_DEFINITIONS + "/" + id + conf.IMAGE;
+        String url = FlowableApiControllerConfig.REPOSITORY_PROCESS_DEFINITIONS + "/" + id + FlowableApiControllerConfig.IMAGE;
         String body = null;
 
         log.info("FlowableProxyController: " + url);
