@@ -16,11 +16,7 @@ public class ApplicationController {
 	
 	private final Logger log = LoggerFactory.getLogger(ApplicationController.class);
 	
-	final
-	JwtUtil jwtUti;
-	
-	public ApplicationController(JwtUtil jwtUti) {
-		this.jwtUti = jwtUti;
+	public ApplicationController() {
 	}
 	
 	@GetMapping("/")
