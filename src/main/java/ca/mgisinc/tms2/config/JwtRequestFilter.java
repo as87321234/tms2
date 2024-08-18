@@ -2,7 +2,6 @@ package ca.mgisinc.tms2.config;
 
 import ca.mgisinc.tms2.service.CustomUserDetailsService;
 import ca.mgisinc.tms2.util.JwtUtil;
-import com.sun.istack.NotNull;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
