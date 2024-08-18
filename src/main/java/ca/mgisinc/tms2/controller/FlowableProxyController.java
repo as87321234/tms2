@@ -12,7 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -27,7 +26,9 @@ import java.net.URISyntaxException;
 
 public class FlowableProxyController {
 
-    final Logger log = LoggerFactory.getLogger(FlowableProxyController.class);
+    private final Logger log = LoggerFactory.getLogger(FlowableProxyController.class);
+
+    private final RestTemplate restTemplate = new RestTemplate();
 
     @Autowired
     JwtUtil jwtUti;
@@ -47,7 +48,6 @@ public class FlowableProxyController {
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> resp =
                 restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
 
@@ -69,7 +69,6 @@ public class FlowableProxyController {
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> resp =
                 restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
 
@@ -92,7 +91,6 @@ public class FlowableProxyController {
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> resp =
                 restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
 
@@ -114,7 +112,6 @@ public class FlowableProxyController {
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> resp =
                 restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
 

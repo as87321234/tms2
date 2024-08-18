@@ -67,7 +67,7 @@ public class FlowableApiRuntimeController {
         int port = conf.port;
 
         HttpMethod method = HttpMethod.DELETE;
-        String url = conf.RUNTIME_PROCESS_INSTANCE + "/" +id;
+        String url = FlowableApiControllerConfig.RUNTIME_PROCESS_INSTANCE + "/" +id;
         String body = null;
 
         log.info("FlowableProxyController: " +url);
@@ -75,7 +75,6 @@ public class FlowableApiRuntimeController {
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> resp =
                 restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
 

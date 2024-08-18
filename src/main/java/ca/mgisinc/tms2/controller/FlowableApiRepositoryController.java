@@ -30,6 +30,8 @@ public class FlowableApiRepositoryController {
     @Autowired
     FlowableApiControllerConfig conf;
 
+    private final RestTemplate restTemplate = new RestTemplate();
+
     @GetMapping(value = "/deployments", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getDeployments(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
 
@@ -47,7 +49,6 @@ public class FlowableApiRepositoryController {
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> resp =
                 restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
 
@@ -71,7 +72,6 @@ public class FlowableApiRepositoryController {
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> resp =
                 restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
 
@@ -80,7 +80,7 @@ public class FlowableApiRepositoryController {
 
 
     @GetMapping(value = "/deployments/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getRepositoryDeploymentDelete(HttpServletRequest request, HttpServletResponse response, @PathVariable(value="id") final String id ) throws URISyntaxException {
+    public String getRepositoryDeploymentDelete(HttpServletRequest request, HttpServletResponse response, @PathVariable(value = "id") final String id) throws URISyntaxException {
 
 
         String protocol = conf.protocol;
@@ -90,15 +90,14 @@ public class FlowableApiRepositoryController {
         int port = conf.port;
 
         HttpMethod method = HttpMethod.DELETE;
-        String url = conf.REPOSITORY_DEPLOYMENTS + "/" +id;
+        String url = conf.REPOSITORY_DEPLOYMENTS + "/" + id;
         String body = null;
 
-        log.info("FlowableProxyController: " +url);
+        log.info("FlowableProxyController: " + url);
 
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> resp =
                 restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
 
@@ -107,7 +106,7 @@ public class FlowableApiRepositoryController {
     }
 
     @GetMapping(value = "/process-definitions/{id}/image", produces = MediaType.IMAGE_PNG_VALUE)
-    public byte[] getRepositoryProcessDefinitionImage(HttpServletRequest request, HttpServletResponse response, @PathVariable(value="id") final String id ) throws URISyntaxException {
+    public byte[] getRepositoryProcessDefinitionImage(HttpServletRequest request, HttpServletResponse response, @PathVariable(value = "id") final String id) throws URISyntaxException {
 
 
         String protocol = conf.protocol;
@@ -117,21 +116,19 @@ public class FlowableApiRepositoryController {
         int port = conf.port;
 
         HttpMethod method = HttpMethod.GET;
-        String url = conf.REPOSITORY_PROCESS_DEFINITIONS + "/" +id + conf.IMAGE;
+        String url = conf.REPOSITORY_PROCESS_DEFINITIONS + "/" + id + conf.IMAGE;
         String body = null;
 
-        log.info("FlowableProxyController: " +url);
+        log.info("FlowableProxyController: " + url);
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<byte[]> resp =
                 restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), byte[].class);
 
         return resp.getBody();
 
     }
-
 
 
 }
