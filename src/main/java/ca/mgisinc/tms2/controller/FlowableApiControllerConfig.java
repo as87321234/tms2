@@ -20,28 +20,30 @@ public class FlowableApiControllerConfig {
     String fragment = null;
     int port = 9999;
 
-    String REST_API_CONTEXT = "/process-api";
+    static final String REST_API_CONTEXT = "/process-api";
 
     // Repository
-    String REPOSITORY = "/repository";
-    String DEPLOYMENT = "/deployments";
-    String DEFINITION = "/definitions";
-    String PROCESS_DEFINITION = "/process-definitions";
-    String IMAGE = "/image";
+    static final String REPOSITORY = "/repository";
+    static final String DEPLOYMENT = "/deployments";
+    static final String DEFINITION = "/definitions";
+    static final String PROCESS_DEFINITION = "/process-definitions";
+    static final String IMAGE = "/image";
 
 
     // Runtime
-    String RUNTIME = "/runtime";
-    String PROCESS_INSTANCE = "/process-instances";
-    String EXECUTIONS = "/executions";
+    static final String RUNTIME = "/runtime";
+    static final String PROCESS_INSTANCE = "/process-instances";
+    static final String EXECUTIONS = "/executions";
+    static final String QUERY = "/query";
 
     // URL Services - Repository
-    String REPOSITORY_DEPLOYMENTS = REST_API_CONTEXT + REPOSITORY + DEPLOYMENT;
-    String REPOSITORY_DEFINITIONS = REST_API_CONTEXT + REPOSITORY + DEFINITION;
-    String REPOSITORY_PROCESS_DEFINITIONS = REST_API_CONTEXT + REPOSITORY + PROCESS_DEFINITION;
+    static final String REPOSITORY_DEPLOYMENTS = REST_API_CONTEXT + REPOSITORY + DEPLOYMENT;
+    static final String REPOSITORY_DEFINITIONS = REST_API_CONTEXT + REPOSITORY + DEFINITION;
+    static final String REPOSITORY_PROCESS_DEFINITIONS = REST_API_CONTEXT + REPOSITORY + PROCESS_DEFINITION;
 
     // URL Services - Runtime
-    String RUNTIME_PROCESS_INSTANCE = REST_API_CONTEXT + RUNTIME + PROCESS_INSTANCE;
-    String RUNTIME_EXECUTIONS = REST_API_CONTEXT + RUNTIME + EXECUTIONS;
+    static final String RUNTIME_PROCESS_INSTANCE = REST_API_CONTEXT + RUNTIME + PROCESS_INSTANCE;
+    static final String RUNTIME_EXECUTIONS = REST_API_CONTEXT + RUNTIME + EXECUTIONS;
+    static final String QUERY_PROCESS_INSTANCE = REST_API_CONTEXT + QUERY + PROCESS_INSTANCE;
 
 }
