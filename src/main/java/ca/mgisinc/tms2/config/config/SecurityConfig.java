@@ -54,6 +54,7 @@ public class SecurityConfig {
 		this.customUserDetailsService = customUserDetailsService;
 	}
 	
+	@SuppressWarnings("SameReturnValue")
 	@Bean
 	public User createUsers() {
 		
