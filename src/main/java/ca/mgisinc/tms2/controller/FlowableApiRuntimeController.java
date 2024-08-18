@@ -41,7 +41,7 @@ public class FlowableApiRuntimeController {
         String url = FlowableApiControllerConfig.RUNTIME_EXECUTIONS;
         String body = null;
 
-        log.info("FlowableApiRuntimeController: " + url);
+        log.info("FlowableApiRuntimeController: {}", url);
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 
@@ -67,7 +67,7 @@ public class FlowableApiRuntimeController {
         String url = FlowableApiControllerConfig.RUNTIME_PROCESS_INSTANCE + "/" +id;
         String body = null;
 
-        log.info("FlowableProxyController: " +url);
+        log.info("FlowableProxyController: {}", url);
 
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);

@@ -16,7 +16,6 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
-import java.util.List;
 
 @RestController
 @RequestMapping("/flow-api/query")
@@ -43,7 +42,7 @@ public class FlowableApiQueryController {
         String url = FlowableApiControllerConfig.QUERY_PROCESS_INSTANCE;
         String body = null;
 
-        log.info("FlowableApiQueryController: " + url);
+        log.info("FlowableApiQueryController: {}", url);
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 

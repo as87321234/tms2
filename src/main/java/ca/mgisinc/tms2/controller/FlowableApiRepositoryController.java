@@ -44,7 +44,7 @@ public class FlowableApiRepositoryController {
         String url = FlowableApiControllerConfig.REPOSITORY_DEPLOYMENTS;
         String body = null;
 
-        log.info("FlowableApiRepositoryController: " + url);
+        log.info("FlowableApiRepositoryController: {}", url);
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 
@@ -67,7 +67,7 @@ public class FlowableApiRepositoryController {
         String url = FlowableApiControllerConfig.REPOSITORY_PROCESS_DEFINITIONS;
         String body = null;
 
-        log.info("FlowableApiRepositoryController: " + url);
+        log.info("FlowableApiRepositoryController: {}", url);
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 
@@ -92,7 +92,7 @@ public class FlowableApiRepositoryController {
         String url = FlowableApiControllerConfig.REPOSITORY_DEPLOYMENTS + "/" + id;
         String body = null;
 
-        log.info("FlowableProxyController: " + url);
+        log.info("FlowableProxyController: {}", url);
 
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
@@ -118,7 +118,7 @@ public class FlowableApiRepositoryController {
         String url = FlowableApiControllerConfig.REPOSITORY_PROCESS_DEFINITIONS + "/" + id + FlowableApiControllerConfig.IMAGE;
         String body = null;
 
-        log.info("FlowableProxyController: " + url);
+        log.info("FlowableProxyController: {}", url);
 
         URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 
