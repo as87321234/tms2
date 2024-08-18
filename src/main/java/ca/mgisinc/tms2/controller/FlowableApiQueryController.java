@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,10 @@ public class FlowableApiQueryController {
 	private final RestTemplate restTemplate = new RestTemplate();
 	final
 	FlowableApiControllerConfig conf;
+	
+	@Autowired
+	ProcessFilterQueryProcessInstances query ;
+	
 	
 	public FlowableApiQueryController(FlowableApiControllerConfig conf) {
 		this.conf = conf;
@@ -51,13 +56,13 @@ public class FlowableApiQueryController {
 		headers.setAccept(List.of(MediaType.APPLICATION_JSON));
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		
-		ProcessFilterQueryProcessInstances query = new ProcessFilterQueryProcessInstances();
 		HttpEntity<ProcessFilterQueryProcessInstances> entity = new HttpEntity<>(query, headers);
 		
 		ResponseEntity<String> resp =
 				restTemplate.exchange(thirdPartyApi, method, entity, String.class);
 		
 		return resp.getBody();
+		
 	}
 	
 }
