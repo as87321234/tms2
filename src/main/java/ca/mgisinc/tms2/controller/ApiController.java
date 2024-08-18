@@ -30,8 +30,12 @@ import java.util.Set;
 public class ApiController {
 	
 	private final Logger log = LoggerFactory.getLogger(ApiController.class);
-	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	public ApiController(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 	
 	@PostMapping(value = "get_users", produces = MediaType.APPLICATION_JSON_VALUE)
 	public DataView getUser(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {

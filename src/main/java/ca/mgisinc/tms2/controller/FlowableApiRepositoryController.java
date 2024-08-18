@@ -25,8 +25,12 @@ public class FlowableApiRepositoryController {
 	
 	private final Logger log = LoggerFactory.getLogger(FlowableApiRepositoryController.class);
 	private final RestTemplate restTemplate = new RestTemplate();
-	@Autowired
+	final
 	FlowableApiControllerConfig conf;
+	
+	public FlowableApiRepositoryController(FlowableApiControllerConfig conf) {
+		this.conf = conf;
+	}
 	
 	@GetMapping(value = "/deployments", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String getDeployments(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {

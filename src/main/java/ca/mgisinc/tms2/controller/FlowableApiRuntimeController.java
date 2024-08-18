@@ -25,8 +25,12 @@ public class FlowableApiRuntimeController {
 	
 	private final Logger log = LoggerFactory.getLogger(FlowableApiRuntimeController.class);
 	private final RestTemplate restTemplate = new RestTemplate();
-	@Autowired
+	final
 	FlowableApiControllerConfig conf;
+	
+	public FlowableApiRuntimeController(FlowableApiControllerConfig conf) {
+		this.conf = conf;
+	}
 	
 	@GetMapping(value = "/executions", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String getExecutions(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {

@@ -29,8 +29,12 @@ public class FlowableProxyController {
 	
 	private final RestTemplate restTemplate = new RestTemplate();
 	
-	@Autowired
+	final
 	JwtUtil jwtUti;
+	
+	public FlowableProxyController(JwtUtil jwtUti) {
+		this.jwtUti = jwtUti;
+	}
 	
 	@GetMapping(value = "/management/engine", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String getManagementEngine(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {

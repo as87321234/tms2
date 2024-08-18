@@ -17,8 +17,12 @@ public class ApplicationController {
 	
 	private final Logger log = LoggerFactory.getLogger(ApplicationController.class);
 	
-	@Autowired
+	final
 	JwtUtil jwtUti;
+	
+	public ApplicationController(JwtUtil jwtUti) {
+		this.jwtUti = jwtUti;
+	}
 	
 	@GetMapping("/")
 	public String root(HttpServletRequest request, HttpServletResponse response, Model model) {

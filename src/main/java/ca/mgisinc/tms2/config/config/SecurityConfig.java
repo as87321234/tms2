@@ -38,16 +38,22 @@ import java.util.Arrays;
 public class SecurityConfig {
 	
 	private final Logger log = LoggerFactory.getLogger(SecurityConfig.class);
-	@Autowired
+	final
 	UserRepository userRepository;
-	@Autowired
+	final
 	RoleRepository roleRepository;
-	@Autowired
+	final
 	PrivilegeRepository privilegeRepository;
-	@Autowired
-	private CustomUserDetailsService customUserDetailsService;
-	@Autowired
-	private JwtUtil jwtUtil;
+	private final CustomUserDetailsService customUserDetailsService;
+	private final JwtUtil jwtUtil;
+	
+	public SecurityConfig(JwtUtil jwtUtil, RoleRepository roleRepository, UserRepository userRepository, PrivilegeRepository privilegeRepository, CustomUserDetailsService customUserDetailsService) {
+		this.jwtUtil = jwtUtil;
+		this.roleRepository = roleRepository;
+		this.userRepository = userRepository;
+		this.privilegeRepository = privilegeRepository;
+		this.customUserDetailsService = customUserDetailsService;
+	}
 	
 	@Bean
 	public User createUsers() {

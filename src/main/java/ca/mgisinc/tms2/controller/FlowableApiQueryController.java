@@ -24,8 +24,12 @@ public class FlowableApiQueryController {
 	
 	private final Logger log = LoggerFactory.getLogger(FlowableApiQueryController.class);
 	private final RestTemplate restTemplate = new RestTemplate();
-	@Autowired
+	final
 	FlowableApiControllerConfig conf;
+	
+	public FlowableApiQueryController(FlowableApiControllerConfig conf) {
+		this.conf = conf;
+	}
 	
 	@GetMapping(value = "/process-instances", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
 	public String getProcessInstances(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
