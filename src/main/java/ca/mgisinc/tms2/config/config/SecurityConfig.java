@@ -79,12 +79,12 @@ public class SecurityConfig {
         roleRepository.saveAndFlush(r);
 
         r = new Role("OPERATOR");
-        r.setPrivileges(new ArrayList<>(Arrays.<Privilege>asList(privilegeRepository.findByName("CREATE"), privilegeRepository.findByName("READ"), privilegeRepository.findByName("UPDATE"))));
+        r.setPrivileges(new ArrayList<>(Arrays.asList(privilegeRepository.findByName("CREATE"), privilegeRepository.findByName("READ"), privilegeRepository.findByName("UPDATE"))));
         roleRepository.save(r);
 
         r = new Role("USER");
         //noinspection ArraysAsListWithZeroOrOneArgument
-        r.setPrivileges(new ArrayList<>(Arrays.<Privilege>asList(privilegeRepository.findByName("READ"))));
+        r.setPrivileges(new ArrayList<>(Arrays.asList(privilegeRepository.findByName("READ"))));
         roleRepository.save(r);
 
         // Load Users
