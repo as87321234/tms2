@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Arrays;
+import java.util.List;
 
 @RestController
 @RequestMapping("/flow-api/query")
