@@ -85,8 +85,12 @@
 
     function deleteApp(id) {
 
-        fetch('/flow-api/repository/deployments/' + id, {
-            method: 'GET'
+        $.ajax({
+            url: '/flow-api/repository/deployments/' + id,
+            method: 'GET',
+            success: function(data) {
+                location.reload()
+            }
         });
     }
 
