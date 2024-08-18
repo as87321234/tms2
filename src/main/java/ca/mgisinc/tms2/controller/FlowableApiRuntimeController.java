@@ -5,7 +5,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +39,6 @@ public class FlowableApiRuntimeController {
 		
 		HttpMethod method = HttpMethod.GET;
 		String url = FlowableApiControllerConfig.RUNTIME_EXECUTIONS;
-		String body = null;
 		
 		log.info("FlowableApiRuntimeController: {}", url);
 		
@@ -48,7 +46,7 @@ public class FlowableApiRuntimeController {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<String> resp =
-				restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
+				restTemplate.exchange(thirdPartyApi, method, null, String.class);
 		
 		return resp.getBody();
 	}
@@ -66,7 +64,6 @@ public class FlowableApiRuntimeController {
 		
 		HttpMethod method = HttpMethod.DELETE;
 		String url = FlowableApiControllerConfig.RUNTIME_PROCESS_INSTANCE + "/" + id;
-		String body = null;
 		
 		log.info("FlowableProxyController: {}", url);
 		
@@ -74,7 +71,7 @@ public class FlowableApiRuntimeController {
 		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 		
 		ResponseEntity<String> resp =
-				restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
+				restTemplate.exchange(thirdPartyApi, method, null, String.class);
 		
 		return resp.getBody();
 		

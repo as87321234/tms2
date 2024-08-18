@@ -74,7 +74,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 			String jwtToken = jwtUtil.generateToken(userDetails, jSessionId);
 			response.addHeader("JWT", jwtToken);
 			
-			log.info(String.format("Genereate JWT Token: %s based on sessionID: %s", jwtToken, jSessionId));
+			log.info(String.format("Generate JWT Token: %s based on sessionID: %s", jwtToken, jSessionId));
 			
 			Cookie cookie = new Cookie("JWT", jwtToken);
 			response.addCookie(cookie);

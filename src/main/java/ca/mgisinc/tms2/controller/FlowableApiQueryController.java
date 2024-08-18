@@ -38,7 +38,6 @@ public class FlowableApiQueryController {
 		
 		HttpMethod method = HttpMethod.POST;
 		String url = FlowableApiControllerConfig.QUERY_PROCESS_INSTANCE;
-		String body = null;
 		
 		log.info("FlowableApiQueryController: {}", url);
 		
@@ -50,7 +49,7 @@ public class FlowableApiQueryController {
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		
 		ProcessFilterQueryProcessInstances query = new ProcessFilterQueryProcessInstances();
-		HttpEntity<ProcessFilterQueryProcessInstances> entity = new HttpEntity<ProcessFilterQueryProcessInstances>(query, headers);
+		HttpEntity<ProcessFilterQueryProcessInstances> entity = new HttpEntity<>(query, headers);
 		
 		ResponseEntity<String> resp =
 				restTemplate.exchange(thirdPartyApi, method, entity, String.class);

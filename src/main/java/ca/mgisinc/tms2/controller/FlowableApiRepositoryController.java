@@ -5,7 +5,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -40,14 +39,13 @@ public class FlowableApiRepositoryController {
 		
 		HttpMethod method = HttpMethod.GET;
 		String url = FlowableApiControllerConfig.REPOSITORY_DEPLOYMENTS;
-		String body = null;
 		
 		log.info("FlowableApiRepositoryController: {}", url);
 		
 		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 		
 		ResponseEntity<String> resp =
-				restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
+				restTemplate.exchange(thirdPartyApi, method, null, String.class);
 		
 		return resp.getBody();
 	}
@@ -63,14 +61,13 @@ public class FlowableApiRepositoryController {
 		
 		HttpMethod method = HttpMethod.GET;
 		String url = FlowableApiControllerConfig.REPOSITORY_PROCESS_DEFINITIONS;
-		String body = null;
 		
 		log.info("FlowableApiRepositoryController: {}", url);
 		
 		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 		
 		ResponseEntity<String> resp =
-				restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
+				restTemplate.exchange(thirdPartyApi, method, null, String.class);
 		
 		return resp.getBody();
 	}
@@ -88,7 +85,6 @@ public class FlowableApiRepositoryController {
 		
 		HttpMethod method = HttpMethod.DELETE;
 		String url = FlowableApiControllerConfig.REPOSITORY_DEPLOYMENTS + "/" + id;
-		String body = null;
 		
 		log.info("FlowableProxyController: {}", url);
 		
@@ -96,7 +92,7 @@ public class FlowableApiRepositoryController {
 		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 		
 		ResponseEntity<String> resp =
-				restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
+				restTemplate.exchange(thirdPartyApi, method, null, String.class);
 		
 		return resp.getBody();
 		
@@ -114,14 +110,13 @@ public class FlowableApiRepositoryController {
 		
 		HttpMethod method = HttpMethod.GET;
 		String url = FlowableApiControllerConfig.REPOSITORY_PROCESS_DEFINITIONS + "/" + id + FlowableApiControllerConfig.IMAGE;
-		String body = null;
 		
 		log.info("FlowableProxyController: {}", url);
 		
 		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 		
 		ResponseEntity<byte[]> resp =
-				restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), byte[].class);
+				restTemplate.exchange(thirdPartyApi, method, null, byte[].class);
 		
 		return resp.getBody();
 		
