@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Arrays;
+import java.util.List;
 
 @RestController
 @RequestMapping("/flow-api/query")
@@ -48,7 +48,7 @@ public class FlowableApiQueryController {
 		
 		
 		HttpHeaders headers = new HttpHeaders();
-		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		headers.setAccept(List.of(MediaType.APPLICATION_JSON));
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		
 		ProcessFilterQueryProcessInstances query = new ProcessFilterQueryProcessInstances();

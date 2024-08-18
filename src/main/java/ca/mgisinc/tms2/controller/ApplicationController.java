@@ -1,6 +1,5 @@
 package ca.mgisinc.tms2.controller;
 
-import ca.mgisinc.tms2.util.JwtUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;

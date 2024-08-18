@@ -17,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+@SuppressWarnings("LoggingSimilarMessage")
 @RestController
 @RequestMapping("/flow-api/repository")
 
