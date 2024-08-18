@@ -1,6 +1,8 @@
 package ca.mgisinc.tms2.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,14 +16,13 @@ import java.util.Collection;
 @NoArgsConstructor
 
 public class Privilege extends BaseEntity {
-
-    private String name;
-
-    public Privilege(String name) {
-        this.name = name;
-    }
-
-    @ManyToMany(mappedBy = "privileges")
-    private Collection<Role> roles;
-
+	
+	private String name;
+	@ManyToMany(mappedBy = "privileges")
+	private Collection<Role> roles;
+	
+	public Privilege(String name) {
+		this.name = name;
+	}
+	
 }

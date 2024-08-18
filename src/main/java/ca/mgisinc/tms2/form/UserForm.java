@@ -11,10 +11,10 @@ import lombok.Setter;
 @NoArgsConstructor
 
 public class UserForm {
-
-    private String firstname;
-    private String username;
-    private String password;
-    private Boolean enabled;
-
+	
+	private String firstname;
+	private String username;
+	private String password;
+	private Boolean enabled;
+	
 }

@@ -10,9 +10,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 
 public class TMS2 {
-
-    public static void main(String[] args) {
-        SpringApplication.run(TMS2.class, args);
-    }
-
+	
+	public static void main(String[] args) {
+		SpringApplication.run(TMS2.class, args);
+	}
+	
 }

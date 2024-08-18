@@ -10,31 +10,32 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 
 @Service
 @EnableJpaRepositories
 public class CustomUserDetailsService implements UserDetailsService {
-
-    private final Logger log = LoggerFactory.getLogger(CustomUserDetailsService.class);
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-        log.info(String.format("Loading user by username: %s", username));
-
-        User user = userRepository.findByUsername(username);
-
-        if (user == null) {
-            UsernameNotFoundException e = new UsernameNotFoundException("User not found");
-
-            log.error(e.getMessage(), e);
-
-            throw e;
-        }
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), new ArrayList<>());
-    }
+	
+	private final Logger log = LoggerFactory.getLogger(CustomUserDetailsService.class);
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
+		log.info(String.format("Loading user by username: %s", username));
+		
+		User user = userRepository.findByUsername(username);
+		
+		if (user == null) {
+			UsernameNotFoundException e = new UsernameNotFoundException("User not found");
+			
+			log.error(e.getMessage(), e);
+			
+			throw e;
+		}
+		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), new ArrayList<>());
+	}
 }

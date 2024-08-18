@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class ProcessFilterQueryProcessInstances {
-
-    int size = 20;
+	
+	int size = 20;
 }

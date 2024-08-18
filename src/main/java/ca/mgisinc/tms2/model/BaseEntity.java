@@ -1,7 +1,6 @@
 package ca.mgisinc.tms2.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +11,8 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDateTime;
+
 @MappedSuperclass
 @SuperBuilder
 @AllArgsConstructor
@@ -19,25 +20,25 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Data
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @CreationTimestamp
-    @Column(name = "created_at")
-    private LocalDateTime createdDateTime;
-
-    @UpdateTimestamp
-    @Column(name = "updated_at")
-    private LocalDateTime updatedDateTime;
-
-    @CreatedBy
-    @Column(name = "created_by")
-    private String createdBy;
-
-    @LastModifiedBy
-    @Column(name = "updated_by")
-    private String updatedBy;
-
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@CreationTimestamp
+	@Column(name = "created_at")
+	private LocalDateTime createdDateTime;
+	
+	@UpdateTimestamp
+	@Column(name = "updated_at")
+	private LocalDateTime updatedDateTime;
+	
+	@CreatedBy
+	@Column(name = "created_by")
+	private String createdBy;
+	
+	@LastModifiedBy
+	@Column(name = "updated_by")
+	private String updatedBy;
+	
 }

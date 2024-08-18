@@ -9,11 +9,11 @@ import java.util.List;
 @Setter
 
 public class DataView {
-
-    private List<Object> data;
-
-    public DataView(List<Object> userList) {
-        this.data = userList;
-    }
-
+	
+	private List<Object> data;
+	
+	public DataView(List<Object> userList) {
+		this.data = userList;
+	}
+	
 }

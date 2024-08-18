@@ -21,45 +21,43 @@ import java.util.Arrays;
 @RequestMapping("/flow-api/query")
 
 public class FlowableApiQueryController {
-
-    private final Logger log = LoggerFactory.getLogger(FlowableApiQueryController.class);
-
-    @Autowired
-    FlowableApiControllerConfig conf;
-
-    private final RestTemplate restTemplate = new RestTemplate();
-
-    @GetMapping(value = "/process-instances", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
-    public String getProcessInstances(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
-
-        String protocol = conf.protocol;
-        String userinfo = conf.userinfo;
-        String fragment = conf.fragment;
-        String host = conf.host;
-        int port = conf.port;
-
-        HttpMethod method = HttpMethod.POST;
-        String url = FlowableApiControllerConfig.QUERY_PROCESS_INSTANCE;
-        String body = null;
-
-        log.info("FlowableApiQueryController: {}", url);
-
-        URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
-
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        headers.setContentType(MediaType.APPLICATION_JSON );
-
-        ProcessFilterQueryProcessInstances query = new ProcessFilterQueryProcessInstances();
-        HttpEntity<ProcessFilterQueryProcessInstances> entity = new HttpEntity<ProcessFilterQueryProcessInstances>(query ,headers);
-
-        ResponseEntity<String> resp =
-                restTemplate.exchange(thirdPartyApi, method, entity, String.class);
-
-        return resp.getBody();
-    }
-
+	
+	private final Logger log = LoggerFactory.getLogger(FlowableApiQueryController.class);
+	private final RestTemplate restTemplate = new RestTemplate();
+	@Autowired
+	FlowableApiControllerConfig conf;
+	
+	@GetMapping(value = "/process-instances", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
+	public String getProcessInstances(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
+		
+		String protocol = conf.protocol;
+		String userinfo = conf.userinfo;
+		String fragment = conf.fragment;
+		String host = conf.host;
+		int port = conf.port;
+		
+		HttpMethod method = HttpMethod.POST;
+		String url = FlowableApiControllerConfig.QUERY_PROCESS_INSTANCE;
+		String body = null;
+		
+		log.info("FlowableApiQueryController: {}", url);
+		
+		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
+		
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		
+		ProcessFilterQueryProcessInstances query = new ProcessFilterQueryProcessInstances();
+		HttpEntity<ProcessFilterQueryProcessInstances> entity = new HttpEntity<ProcessFilterQueryProcessInstances>(query, headers);
+		
+		ResponseEntity<String> resp =
+				restTemplate.exchange(thirdPartyApi, method, entity, String.class);
+		
+		return resp.getBody();
+	}
+	
 }
 
 

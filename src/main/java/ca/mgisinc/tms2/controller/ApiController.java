@@ -19,51 +19,52 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 
 @RestController
 @RequestMapping("/api")
 public class ApiController {
-
-    @Autowired
-    UserRepository userRepository;
-
-    private final Logger log = LoggerFactory.getLogger(ApiController.class);
-
-    @PostMapping(value = "get_users", produces = MediaType.APPLICATION_JSON_VALUE)
-    public DataView getUser(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
-
-        log.info("ApplicationController root");
-
-        DataView dataView = new DataView(new ArrayList<>());
-
-        for (User u : userRepository.findAll()) {
-
-            UserTableView userTableView = new UserTableView();
-            BeanUtils.copyProperties(u, userTableView);
-
-            Set<String> roles = new HashSet<>();
-            Set<String> privileges = new HashSet<>();
-
-            for (Role r : u.getRoles()) {
-                roles.add(r.getName());
-
-                for (Privilege p : r.getPrivileges()) {
-                    privileges.add(p.getName());
-                }
-            }
-
-            userTableView.setRoles(roles);
-            userTableView.setPrivileges(privileges);
-
-            dataView.getData().add(userTableView);
-
-        }
-
-        return dataView;
-
-    }
-
+	
+	private final Logger log = LoggerFactory.getLogger(ApiController.class);
+	@Autowired
+	UserRepository userRepository;
+	
+	@PostMapping(value = "get_users", produces = MediaType.APPLICATION_JSON_VALUE)
+	public DataView getUser(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
+		
+		log.info("ApplicationController root");
+		
+		DataView dataView = new DataView(new ArrayList<>());
+		
+		for (User u : userRepository.findAll()) {
+			
+			UserTableView userTableView = new UserTableView();
+			BeanUtils.copyProperties(u, userTableView);
+			
+			Set<String> roles = new HashSet<>();
+			Set<String> privileges = new HashSet<>();
+			
+			for (Role r : u.getRoles()) {
+				roles.add(r.getName());
+				
+				for (Privilege p : r.getPrivileges()) {
+					privileges.add(p.getName());
+				}
+			}
+			
+			userTableView.setRoles(roles);
+			userTableView.setPrivileges(privileges);
+			
+			dataView.getData().add(userTableView);
+			
+		}
+		
+		return dataView;
+		
+	}
+	
 }
