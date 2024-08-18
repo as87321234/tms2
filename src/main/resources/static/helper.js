@@ -6,8 +6,8 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 
-function formatDateYYYYMMDD_HH_MM (date) {
+function formatDateYYYYMMDD_HH_MM_SS (date) {
 
-   return moment(date).format('YYYY/MM/DD HH:MM');
+   return moment(date).format('YYYY/MM/DD HH:mm:ss');
 
 }
