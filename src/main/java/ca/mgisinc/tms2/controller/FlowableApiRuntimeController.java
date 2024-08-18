@@ -28,29 +28,8 @@ public class FlowableApiRuntimeController {
     @Autowired
     FlowableApiControllerConfig conf;
 
-    @GetMapping(value = "/process-instances", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getProcessInstances(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
+    private final RestTemplate restTemplate = new RestTemplate();
 
-        String protocol = conf.protocol;
-        String userinfo = conf.userinfo;
-        String fragment = conf.fragment;
-        String host = conf.host;
-        int port = conf.port;
-
-        HttpMethod method = HttpMethod.GET;
-        String url = conf.RUNTIME_PROCESS_INSTANCE;
-        String body = null;
-
-        log.info("FlowableApiRuntimeController: " + url);
-
-        URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
-
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> resp =
-                restTemplate.exchange(thirdPartyApi, method, new HttpEntity<String>(body), String.class);
-
-        return resp.getBody();
-    }
     @GetMapping(value = "/executions", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getExecutions(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
 

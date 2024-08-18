@@ -31,6 +31,7 @@
                 <th>activityId</th>
                 <th>startTime</th>
                 <th>variables</th>
+                <th>Operation</th>
 
             </tr>
             </thead>
@@ -41,7 +42,7 @@
 
 <script>
 
-    const url = '/flow-api/runtime/process-instances';
+    const url = '/flow-api/query/process-instances';
 
     $(document).ready(function (data) {
 
@@ -68,7 +69,8 @@
                 {"data": "processDefinitionName"},
                 {"data": "activityId"},
                 {"data": "startTime"},
-                {"data": "variables"}
+                {"data": "variables"},
+                {"data": "id"}
             ],
             "columnDefs": [
                 {
@@ -77,12 +79,12 @@
                         return formatDateYYYYMMDD_HH_MM_SS(row.startTime)
                     }
                 },
-                // {
-                //     targets: 4,
-                //     render: function (data, type, row) {
-                //         return '<a href="javascript:deleteApp(\'' + row.id + '\')" class="btn btn-primary w-100">Delete</a>'
-                //     }
-                // }
+                {
+                    targets: 8,
+                    render: function (data, type, row) {
+                        return '<a href="javascript:deleteApp(\'' + row.id + '\')" class="btn btn-primary w-100">Delete</a>'
+                    }
+                }
             ]
         });
     });
