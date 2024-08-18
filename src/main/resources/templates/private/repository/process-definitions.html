@@ -30,20 +30,13 @@
             <thead>
             <tr>
                 <th>Id</th>
-                <th>url</th>
                 <th>key</th>
                 <th>version</th>
                 <th>name</th>
                 <th>description</th>
-
                 <th>deploymentId</th>
-                <th>deploymentUrl</th>
                 <th>resource</th>
                 <th>diagramResource</th>
-                <th>category</th>
-                <th>graphicalNotationDefined</th>
-                <th>suspended</th>
-                <th>startFormDefined</th>
 
             </tr>
             </thead>
@@ -80,24 +73,24 @@
             "bFilter": true,
             "columns": [
                 {"data": "id"},
-                {"data": "url"},
                 {"data": "key"},
                 {"data": "version"},
                 {"data": "name"},
                 {"data": "description"},
                 {"data": "deploymentId"},
-                {"data": "deploymentUrl"},
                 {"data": "resource"},
                 {"data": "diagramResource"},
-                {"data": "category"},
-                {"data": "graphicalNotationDefined"},
-                {"data": "suspended"},
-                {"data": "startFormDefined"}
 
             ],
             "columnDefs": [
                 {
-                    targets: 9,
+                    targets: 6,  // Resource
+                    render: function (data, type, row) {
+                        return row.resource.split("/").pop();
+                    }
+                },
+                {
+                    targets: 7,  // diagramResource
                     render: function (data, type, row) {
                         return '<a href="javascript:getImage(\'' + row.id + '\')" class="btn btn-primary w-100">Image</a>'
                     }
