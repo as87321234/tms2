@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 @ToString
 public class AppEnvironment {
 	
-	private int processMaximum;
-	private int executionMaximum;
+	private int queryMaxRecords;
 	
 }

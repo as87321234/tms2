@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class ProcessFilterQueryProcessInstances {
+public class ProcessFilterQueryDefault {
 	
-	@Value("${app.environment.execution-maximum}")
+	@Value("${app.environment.query-max-records}")
 	String size;
 	
 }
