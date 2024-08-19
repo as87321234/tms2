@@ -31,30 +31,6 @@ public class FlowableApiRuntimeController {
 		this.conf = conf;
 	}
 	
-	@GetMapping(value = "/executions", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String getExecutions(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
-		
-		String protocol = conf.protocol;
-		String userinfo = conf.userinfo;
-		String fragment = conf.fragment;
-		String host = conf.host;
-		int port = conf.port;
-		
-		HttpMethod method = HttpMethod.GET;
-		String url = FlowableApiControllerConfig.RUNTIME_EXECUTIONS;
-		
-		log.info("FlowableApiRuntimeController: {}", url);
-		
-		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
-		
-		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<String> resp =
-				restTemplate.exchange(thirdPartyApi, method, null, String.class);
-		
-		return resp.getBody();
-	}
-	
-	
 	@GetMapping(value = "/process-instances/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String getProcessInstanceDelete(HttpServletRequest request, HttpServletResponse response, @PathVariable(value = "id") final String id) throws URISyntaxException {
 		
