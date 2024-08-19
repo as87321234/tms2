@@ -1,6 +1,7 @@
 package ca.mgisinc.tms2.controller;
 
-import ca.mgisinc.tms2.controller.filterquery.ProcessFilterQueryProcessInstances;
+import ca.mgisinc.tms2.config.config.AppEnvironment;
+import ca.mgisinc.tms2.controller.filterquery.ProcessFilterQueryDefault;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -28,15 +29,14 @@ public class FlowableApiQueryController {
 	FlowableApiControllerConfig conf;
 	
 	@Autowired
-	ProcessFilterQueryProcessInstances query ;
-	
+	ProcessFilterQueryDefault query ;
 	
 	public FlowableApiQueryController(FlowableApiControllerConfig conf) {
 		this.conf = conf;
 	}
 	
 	@GetMapping(value = "/process-instances", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
-	public String getProcessInstances(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
+	public String queryProcessInstances(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
 		
 		String protocol = conf.protocol;
 		String userinfo = conf.userinfo;
@@ -56,7 +56,37 @@ public class FlowableApiQueryController {
 		headers.setAccept(List.of(MediaType.APPLICATION_JSON));
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		
-		HttpEntity<ProcessFilterQueryProcessInstances> entity = new HttpEntity<>(query, headers);
+		HttpEntity<ProcessFilterQueryDefault> entity = new HttpEntity<>(query, headers);
+		
+		ResponseEntity<String> resp =
+				restTemplate.exchange(thirdPartyApi, method, entity, String.class);
+		
+		return resp.getBody();
+		
+	}
+	
+	@GetMapping(value = "/executions", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
+	public String queryExecution(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
+		
+		String protocol = conf.protocol;
+		String userinfo = conf.userinfo;
+		String fragment = conf.fragment;
+		String host = conf.host;
+		int port = conf.port;
+		
+		HttpMethod method = HttpMethod.POST;
+		String url = FlowableApiControllerConfig.QUERY_EXECUTION;
+		
+		log.info("FlowableApiQueryController: {}", url);
+		
+		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
+		
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		
+		HttpEntity<ProcessFilterQueryDefault> entity = new HttpEntity<>(query, headers);
 		
 		ResponseEntity<String> resp =
 				restTemplate.exchange(thirdPartyApi, method, entity, String.class);
