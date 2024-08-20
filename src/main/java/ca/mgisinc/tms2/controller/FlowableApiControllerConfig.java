@@ -29,6 +29,7 @@ public class FlowableApiControllerConfig {
 	public static final String QUERY = "/query";
 	public static final String IMAGE = "/image";
 	public static final String ENGINE = "/engine";
+	public static final String PROPERTIES = "/properties";
 	public static final String SEND_BIOMETRIC_COLLECTION = "/send-biometric-collection";
 	// URL Services - Repository
 	public static final String REPOSITORY_DEPLOYMENTS = REST_API_CONTEXT + REPOSITORY + DEPLOYMENT;
@@ -42,6 +43,7 @@ public class FlowableApiControllerConfig {
 	// URL Flow API - MGIS Rest call
 	public static final String FLOW_API_CONTEXT_SEND_BIOMETRIC_COLLECTION = FLOW_API_CONTEXT + SEND_BIOMETRIC_COLLECTION;;
 	public static final String MANAGEMENT_ENGINE = REST_API_CONTEXT + MANAGEMENT + ENGINE;
+	public static final String MANAGEMENT_PROPERTIES = REST_API_CONTEXT + MANAGEMENT + PROPERTIES;
 	
 	@Value("${flowable.api.controller.host}")
 	public  String host = "localhost";

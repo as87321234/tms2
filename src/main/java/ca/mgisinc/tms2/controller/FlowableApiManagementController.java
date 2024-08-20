@@ -33,7 +33,7 @@ public class FlowableApiManagementController {
 	@GetMapping(value = "/engine", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String getManagementEngine(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
 		
-		log.info("FlowableProxyController: /management/engine");
+		log.info("FlowableApiManagementController: /management/engine");
 		
 		String protocol = conf.protocol;
 		String userinfo = conf.userinfo;
@@ -54,6 +54,31 @@ public class FlowableApiManagementController {
 		
 		return resp.getBody();
 	}
+	
+	
+	@GetMapping(value = "/properties", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String getManagementProperties(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
+		
+		log.info("FlowableApiManagementController: /management/properties");
+		
+		String protocol = conf.protocol;
+		String userinfo = conf.userinfo;
+		String fragment = conf.fragment;
+		String host = conf.host;
+		int port = conf.port;
+		
+		HttpMethod method = HttpMethod.GET;
+		
+		String url = FlowableApiControllerConfig.MANAGEMENT_PROPERTIES;
+		
+		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
+		
+		ResponseEntity<String> resp =
+				restTemplate.exchange(thirdPartyApi, method, null, String.class);
+		
+		return resp.getBody();
+	}
+	
 	
 	
 }
