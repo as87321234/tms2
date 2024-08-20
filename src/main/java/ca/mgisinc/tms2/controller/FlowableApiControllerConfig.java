@@ -20,14 +20,16 @@ public class FlowableApiControllerConfig {
 	public static final String REPOSITORY = "/repository";
 	public static final String DEPLOYMENT = "/deployments";
 	public static final String DEFINITION = "/definitions";
-	public static final String PROCESS_DEFINITION = "/process-definitions";
-	public static final String IMAGE = "/image";
-	public static final String SEND_BIOMETRIC_COLLECTION = "/send-biometric-collection";
-	// Runtime
+	public static final String MANAGEMENT = "/management";
 	public static final String RUNTIME = "/runtime";
+	// Runtime
 	public static final String PROCESS_INSTANCE = "/process-instances";
+	public static final String PROCESS_DEFINITION = "/process-definitions";
 	public static final String EXECUTIONS = "/executions";
 	public static final String QUERY = "/query";
+	public static final String IMAGE = "/image";
+	public static final String ENGINE = "/engine";
+	public static final String SEND_BIOMETRIC_COLLECTION = "/send-biometric-collection";
 	// URL Services - Repository
 	public static final String REPOSITORY_DEPLOYMENTS = REST_API_CONTEXT + REPOSITORY + DEPLOYMENT;
 	public static final String REPOSITORY_DEFINITIONS = REST_API_CONTEXT + REPOSITORY + DEFINITION;
@@ -39,7 +41,7 @@ public class FlowableApiControllerConfig {
 	public static final String QUERY_EXECUTION = REST_API_CONTEXT + QUERY + EXECUTIONS;
 	// URL Flow API - MGIS Rest call
 	public static final String FLOW_API_CONTEXT_SEND_BIOMETRIC_COLLECTION = FLOW_API_CONTEXT + SEND_BIOMETRIC_COLLECTION;;
-	
+	public static final String MANAGEMENT_ENGINE = REST_API_CONTEXT + MANAGEMENT + ENGINE;
 	
 	@Value("${flowable.api.controller.host}")
 	public  String host = "localhost";

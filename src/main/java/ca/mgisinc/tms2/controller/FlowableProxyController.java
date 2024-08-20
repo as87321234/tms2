@@ -31,26 +31,6 @@ public class FlowableProxyController {
 	public FlowableProxyController(JwtUtil jwtUti) {
 	}
 	
-	@GetMapping(value = "/management/engine", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String getManagementEngine(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
-		
-		log.info("FlowableProxyController: /management/engine");
-		String protocol = "http";
-		HttpMethod method = HttpMethod.GET;
-		String userinfo = null;
-		String fragment = null;
-		int port = 9090;
-		String host = "localhost";
-		String url = "/process-api/management/engine";
-		
-		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
-		
-		ResponseEntity<String> resp =
-				restTemplate.exchange(thirdPartyApi, method, null, String.class);
-		
-		return resp.getBody();
-	}
-	
 	@GetMapping(value = "/management/properties", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String getManagementProperties(HttpServletRequest request, HttpServletResponse response, Model model) throws URISyntaxException {
 		
