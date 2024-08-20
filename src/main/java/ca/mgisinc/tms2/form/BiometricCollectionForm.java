@@ -13,6 +13,7 @@ public class BiometricCollectionForm {
 	
 	private String biometricId = BiometricCollectionForm.bioid();
 	private String enrolmentBase64 = "VGhlIGxpdGxlIGZveCBqdW1wIHRoZSBiaWcgZmVuY2UgaXMgcmVkLg==";
+	private String message = "";
 	
 	static private String bioid()  {
 		

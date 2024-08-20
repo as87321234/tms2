@@ -12,7 +12,8 @@
 </head>
 <body class="container">
 <h1 class="py-5">Post a Biometric Collection Test Transaction</h1>
-<form class="col card p-3 mb-5" method="post" th:action="@{/private/users/}" th:object="${userInfo}">
+<form class="col card p-3 mb-5" method="post" th:action="@{/private/developer/submit-enrolment}"
+      th:object="${userInfo}">
   <div class="form-group">
     <label for="biometricId">Biometric Id</label>
     <input class="form-control" id="biometricId" placeholder="Enter Biometric ID" required
@@ -27,8 +28,34 @@
   </div>
   <input class="btn btn-primary w-100" type="submit" value="Submit Enrolment">
 </form>
-<div id="response-message">
+
+<div th:if="${userInfo.message != ''}">
   <h3 class="py-4">Response</h3>
+  [[${userInfo.message}]]
 </div>
+
+<script>
+
+  const url = '/flow-api/send-biometric-collection';
+
+  $(document).ready(function (data) {
+
+  function getImage(id) {
+
+    const imageElement = document.getElementById('imageContainer')
+    imageElement.src = '/flow-api/repository/process-definitions/' + id + '/image';
+
+    $( function() {
+
+      $( "#dialogWorkflowImage" ).dialog();
+
+    });
+
+  }
+
+
+</script>
+
+
 </body>
 </html>

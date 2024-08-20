@@ -15,12 +15,14 @@ import org.springframework.stereotype.Component;
 public class FlowableApiControllerConfig {
 	
 	public static final String REST_API_CONTEXT = "/process-api";
+	public static final String FLOW_API_CONTEXT = "/process-api";
 	// Repository
 	public static final String REPOSITORY = "/repository";
 	public static final String DEPLOYMENT = "/deployments";
 	public static final String DEFINITION = "/definitions";
 	public static final String PROCESS_DEFINITION = "/process-definitions";
 	public static final String IMAGE = "/image";
+	public static final String SEND_BIOMETRIC_COLLECTION = "/send-biometric-collection";
 	// Runtime
 	public static final String RUNTIME = "/runtime";
 	public static final String PROCESS_INSTANCE = "/process-instances";
@@ -35,6 +37,9 @@ public class FlowableApiControllerConfig {
 	public static final String RUNTIME_EXECUTIONS = REST_API_CONTEXT + RUNTIME + EXECUTIONS;
 	public static final String QUERY_PROCESS_INSTANCE = REST_API_CONTEXT + QUERY + PROCESS_INSTANCE;
 	public static final String QUERY_EXECUTION = REST_API_CONTEXT + QUERY + EXECUTIONS;
+	// URL Flow API - MGIS Rest call
+	public static final String FLOW_API_CONTEXT_SEND_BIOMETRIC_COLLECTION = FLOW_API_CONTEXT + SEND_BIOMETRIC_COLLECTION;;
+	
 	
 	@Value("${flowable.api.controller.host}")
 	public  String host = "localhost";

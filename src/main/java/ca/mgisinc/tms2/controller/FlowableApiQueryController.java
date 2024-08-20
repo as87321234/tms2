@@ -24,8 +24,7 @@ public class FlowableApiQueryController {
 	
 	private final Logger log = LoggerFactory.getLogger(FlowableApiQueryController.class);
 	private final RestTemplate restTemplate = new RestTemplate();
-	final
-	FlowableApiControllerConfig conf;
+	private final FlowableApiControllerConfig conf;
 	
 	@Autowired
 	ProcessFilterQueryDefault query ;
