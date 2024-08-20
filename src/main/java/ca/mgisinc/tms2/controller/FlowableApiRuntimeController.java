@@ -43,7 +43,7 @@ public class FlowableApiRuntimeController {
 		HttpMethod method = HttpMethod.DELETE;
 		String url = FlowableApiControllerConfig.RUNTIME_PROCESS_INSTANCE + "/" + id;
 		
-		log.info("FlowableProxyController: {}", url);
+		log.info("FlowableApiRuntimeController: {}", url);
 		
 		
 		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);

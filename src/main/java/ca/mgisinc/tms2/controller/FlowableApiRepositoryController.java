@@ -90,7 +90,7 @@ public class FlowableApiRepositoryController {
 		HttpMethod method = HttpMethod.DELETE;
 		String url = FlowableApiControllerConfig.REPOSITORY_DEPLOYMENTS + "/" + id;
 		
-		log.info("FlowableProxyController: {}", url);
+		log.info("FlowableApiRepositoryController: {}", url);
 		
 		
 		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
@@ -115,7 +115,7 @@ public class FlowableApiRepositoryController {
 		HttpMethod method = HttpMethod.GET;
 		String url = FlowableApiControllerConfig.REPOSITORY_PROCESS_DEFINITIONS + "/" + id + FlowableApiControllerConfig.IMAGE;
 		
-		log.info("FlowableProxyController: {}", url);
+		log.info("FlowableApiRepositoryController: {}", url);
 		
 		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
 		
