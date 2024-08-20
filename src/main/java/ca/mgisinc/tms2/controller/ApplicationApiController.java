@@ -27,18 +27,20 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/api")
-public class ApiController {
+public class ApplicationApiController {
 	
-	private final Logger log = LoggerFactory.getLogger(ApiController.class);
+	private final Logger log = LoggerFactory.getLogger(ApplicationApiController.class);
 	UserRepository userRepository;
 	
 	@Autowired
-	public ApiController(UserRepository userRepository) {
+	public ApplicationApiController(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
-	
+	/**
+	 * Returns an list of all users from the database.
+	 */
 	@PostMapping(value = "get_users", produces = MediaType.APPLICATION_JSON_VALUE)
-	public DataView getUser(HttpServletRequest ignoredRequest, HttpServletResponse ignoredResponse, Model ignoredModel) {
+	public DataView getUser() {
 		
 		log.info("ApplicationController root");
 		
