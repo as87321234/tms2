@@ -13,9 +13,13 @@ import org.springframework.stereotype.Component;
 @Getter
 @Data
 public class FlowableApiControllerConfig {
+
+
+//	/flow-api/biometric/post-biometric-collection
+	
 	
 	public static final String REST_API_CONTEXT = "/process-api";
-	public static final String FLOW_API_CONTEXT = "/process-api";
+	public static final String FLOW_API_CONTEXT = "/flow-api";
 	// Repository
 	public static final String REPOSITORY = "/repository";
 	public static final String DEPLOYMENT = "/deployments";
@@ -29,8 +33,9 @@ public class FlowableApiControllerConfig {
 	public static final String QUERY = "/query";
 	public static final String IMAGE = "/image";
 	public static final String ENGINE = "/engine";
+	public static final String BIOMETRIC = "/biometric";
 	public static final String PROPERTIES = "/properties";
-	public static final String SEND_BIOMETRIC_COLLECTION = "/send-biometric-collection";
+	public static final String POST_BIOMETRIC_COLLECTION = "/post-biometric-collection";
 	// URL Services - Repository
 	public static final String REPOSITORY_DEPLOYMENTS = REST_API_CONTEXT + REPOSITORY + DEPLOYMENT;
 	public static final String REPOSITORY_DEFINITIONS = REST_API_CONTEXT + REPOSITORY + DEFINITION;
@@ -41,7 +46,7 @@ public class FlowableApiControllerConfig {
 	public static final String QUERY_PROCESS_INSTANCE = REST_API_CONTEXT + QUERY + PROCESS_INSTANCE;
 	public static final String QUERY_EXECUTION = REST_API_CONTEXT + QUERY + EXECUTIONS;
 	// URL Flow API - MGIS Rest call
-	public static final String FLOW_API_CONTEXT_SEND_BIOMETRIC_COLLECTION = FLOW_API_CONTEXT + SEND_BIOMETRIC_COLLECTION;;
+	public static final String FLOW_API_CONTEXT_BIOMETRIC_POST_BIOMETRIC_COLLECTION = FLOW_API_CONTEXT + BIOMETRIC + POST_BIOMETRIC_COLLECTION;;
 	public static final String MANAGEMENT_ENGINE = REST_API_CONTEXT + MANAGEMENT + ENGINE;
 	public static final String MANAGEMENT_PROPERTIES = REST_API_CONTEXT + MANAGEMENT + PROPERTIES;
 	

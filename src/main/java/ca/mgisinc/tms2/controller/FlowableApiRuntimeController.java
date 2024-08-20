@@ -23,8 +23,7 @@ public class FlowableApiRuntimeController {
 	
 	private final Logger log = LoggerFactory.getLogger(FlowableApiRuntimeController.class);
 	private final RestTemplate restTemplate = new RestTemplate();
-	final
-	FlowableApiControllerConfig conf;
+	private final FlowableApiControllerConfig conf;
 	
 	public FlowableApiRuntimeController(FlowableApiControllerConfig conf) {
 		this.conf = conf;

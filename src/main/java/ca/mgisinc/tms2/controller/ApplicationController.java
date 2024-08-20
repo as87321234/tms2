@@ -5,6 +5,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +16,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,9 +28,14 @@ import java.util.List;
 public class ApplicationController {
 	
 	private final Logger log = LoggerFactory.getLogger(ApplicationController.class);
+	private FlowableApiControllerConfig conf;
+	private final RestTemplate restTemplate = new RestTemplate();
 	
-	public ApplicationController() {
+	@Autowired
+	public ApplicationController(FlowableApiControllerConfig conf) {
+		this.conf = conf;
 	}
+	
 	
 	@GetMapping("/")
 	public String root(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -137,10 +149,32 @@ public class ApplicationController {
 	}
 	
 	@RequestMapping(value = "/private/developer/submit-enrolment", method = RequestMethod.POST)
-	public String postBiometricTestTransaction(Model model, @ModelAttribute BiometricCollectionForm biometricCollectionForm) {
+	public String postBiometricTestTransaction(HttpServletRequest request,
+											   HttpServletResponse response,
+											   Model model,
+											   @ModelAttribute BiometricCollectionForm biometricCollectionForm) throws URISyntaxException {
 
 		log.info("ApplicationController /private/developer/submit-enrolment");
 		log.info(biometricCollectionForm.toString());
+		
+		String protocol = conf.protocol;
+		String userinfo = conf.userinfo;
+		String fragment = conf.fragment;
+		String host = conf.host;
+		int port = conf.port;
+		
+		HttpMethod method = HttpMethod.POST;
+		String url = FlowableApiControllerConfig.FLOW_API_CONTEXT_BIOMETRIC_POST_BIOMETRIC_COLLECTION;
+		
+		log.info("ApplicationController: {}", url);
+		
+		URI thirdPartyApi = new URI(protocol, userinfo, host, port, url, request.getQueryString(), fragment);
+		
+		ResponseEntity<BiometricCollectionForm> resp =
+				restTemplate.exchange(thirdPartyApi, method,
+						new HttpEntity<>(biometricCollectionForm), BiometricCollectionForm.class);
+
+//		return resp.getBody();
 		
 		return "redirect:/private/developer/submit-enrolment";
 	}
