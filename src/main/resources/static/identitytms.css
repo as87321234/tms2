@@ -9,11 +9,11 @@
     border-collapse: collapse;
 }
 
-#imageContainer {
+#dialogWorkflowImage {
     overflow-x: hidden;
     overflow-y: visible;
+    height: 600px !important;
     width: auto !important;
-    height: auto !important;
 }
 
 .ui-dialog {
