@@ -24,13 +24,13 @@
             <thead>
             <tr>
                 <th>Id</th>
-                <th>name</th>
-                <th>businessKey</th>
-                <th>processDefinitionId</th>
-                <th>processDefinitionName</th>
-                <th>activityId</th>
-                <th>startTime</th>
-                <th>variables</th>
+                <th>Name</th>
+                <th>business Key</th>
+                <th>business Status</th>
+                <th>Process Definition Id</th>
+                <th>Process Definition Name</th>
+                <th>ActivityId</th>
+                <th>Start Time</th>
                 <th>Operation</th>
 
             </tr>
@@ -65,16 +65,16 @@
                 {"data": "id"},
                 {"data": "name"},
                 {"data": "businessKey"},
+                {"data": "businessStatus"},
                 {"data": "processDefinitionId"},
                 {"data": "processDefinitionName"},
                 {"data": "activityId"},
                 {"data": "startTime"},
-                {"data": "variables"},
                 {"data": "id"}
             ],
             "columnDefs": [
                 {
-                    targets: 6,
+                    targets: 7,
                     render: function (data, type, row) {
                         return formatDateYYYYMMDD_HH_MM_SS(row.startTime)
                     }
@@ -82,12 +82,26 @@
                 {
                     targets: 8,
                     render: function (data, type, row) {
-                        return '<a href="javascript:deleteApp(\'' + row.id + '\')" class="btn btn-primary w-100">Delete</a>'
+                        return '<a href="javascript:deleteApp(\'' + row.id + '\')" ' +
+                            'class="btn btn-primary w-100 tms-btn-detail">Detail</a>' +
+                            '<a href="javascript:detailApp(\'' + row.id + '\')" ' +
+                            'class="btn btn-primary w-100 tms-btn-delete">Delete</a>'
                     }
                 }
             ]
         });
     });
+
+    function detailApp(id) {
+
+        $.ajax({
+            url: '/flow-api/runtime/process-instances/' + id,
+            method: 'GET',
+            success: function (data) {
+                location.reload()
+            }
+        });
+    }
 
     function deleteApp(id) {
 

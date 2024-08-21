@@ -29,3 +29,12 @@
 .checkbox {
     width: auto
 }
+
+.tms-btn-detail {
+    margin-bottom: 10px;
+    background-color: green;
+}
+.tms-btn-delete {
+    margin-bottom: 10px;
+    background-color: red;
+}
