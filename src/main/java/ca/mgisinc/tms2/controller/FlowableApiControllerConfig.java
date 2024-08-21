@@ -35,7 +35,11 @@ public class FlowableApiControllerConfig {
 	public static final String ENGINE = "/engine";
 	public static final String BIOMETRIC = "/biometric";
 	public static final String PROPERTIES = "/properties";
+	public static final String VARIABLES = "/variables";
+	public static final String DATA = "/data" ;
 	public static final String POST_BIOMETRIC_COLLECTION = "/post-biometric-collection";
+	public static final String GET_PROCESS_INSTANCE_VARIABLE = "/get-process-instances-variables";
+	
 	// URL Services - Repository
 	public static final String REPOSITORY_DEPLOYMENTS = REST_API_CONTEXT + REPOSITORY + DEPLOYMENT;
 	public static final String REPOSITORY_DEFINITIONS = REST_API_CONTEXT + REPOSITORY + DEFINITION;
@@ -47,6 +51,7 @@ public class FlowableApiControllerConfig {
 	public static final String QUERY_EXECUTION = REST_API_CONTEXT + QUERY + EXECUTIONS;
 	// URL Flow API - MGIS Rest call
 	public static final String FLOW_API_CONTEXT_BIOMETRIC_POST_BIOMETRIC_COLLECTION = FLOW_API_CONTEXT + BIOMETRIC + POST_BIOMETRIC_COLLECTION;;
+	public static final String FLOW_API_CONTEXT_BIOMETRIC_GET_PROCESS_INSTANCE_VARIABLE = FLOW_API_CONTEXT + BIOMETRIC + GET_PROCESS_INSTANCE_VARIABLE;;
 	public static final String MANAGEMENT_ENGINE = REST_API_CONTEXT + MANAGEMENT + ENGINE;
 	public static final String MANAGEMENT_PROPERTIES = REST_API_CONTEXT + MANAGEMENT + PROPERTIES;
 	

@@ -94,8 +94,9 @@
 
     function detailApp(id) {
 
+
         $.ajax({
-            url: '/flow-api/runtime/process-instances/' + id,
+            url: '/flow-api/runtime/process-instances/' + id + '/variables/ca.mgis.tms2flow.controller.pojo.BiometricEnrolment/data',
             method: 'GET',
             success: function (data) {
                 location.reload()
